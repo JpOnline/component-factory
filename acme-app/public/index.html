@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>acme frontend</title>
+  </head>
+  <body>
+    <!-- <script type="module" src="/js/comp1.js"></script> -->
+    <!-- <script type="module" src="/js/comp2.js"></script> -->
+    <script type="module">
+      import "/js/comp2.js";
+      import "/js/comp3.js";
+      import "/js/app.js";
+      import "/js/webcomp.js";
+      import "/js/re-frame-sub.js";
+    </script>
+    <div id="root"></div>
+    <!-- <component&#45;x p2="bla2"></component&#45;x> -->
+    <component-x2></component-x2>
+    <re-frame-sub id="re1">
+      <component-x></component-x>
+    </re-frame-sub>
+    <!-- <script> -->
+    <!--   document.querySelector("re&#45;frame&#45;sub")["prop&#45;sub&#45;pair"] = {p2: "counter"} -->
+    <!-- </script> -->
+    <!-- <script src="/js/main.js"></script> -->
+  </body>
+</html>
