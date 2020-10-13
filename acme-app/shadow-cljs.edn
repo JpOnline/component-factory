@@ -21,19 +21,19 @@
    :modules {:main {:init-fn acme.frontend.app/init}}}
   :components
   {:target :esm
-   :output-dir "public/js"
+   :output-dir "../storybook/my-web-components"
    :modules
    {:shared {}
     ;; :comp1 {:init-fn acme.frontend.app/mystring
     ;;         :depends-on #{:shared}}
-    :comp2 {:init-fn acme.frontend.comp2/comp2string
-            :depends-on #{:shared}}
-    :comp3 {:init-fn acme.frontend.comp3/my-comp
-            :depends-on #{:shared}}
-    :re-frame-sub {:init-fn acme.frontend.re-frame-sub/def-comp
-                   :depends-on #{:shared}}
+    ;; :comp2 {:init-fn acme.frontend.comp2/comp2string
+    ;;         :depends-on #{:shared}}
+    ;; :comp3 {:init-fn acme.frontend.comp3/my-comp
+    ;;         :depends-on #{:shared}}
+    ;; :re-frame-sub {:init-fn acme.frontend.re-frame-sub/def-comp
+                   ;; :depends-on #{:shared}}
     :webcomp {:init-fn acme.frontend.webcomp/my-comp
             :depends-on #{:shared}}
-    :app {:init-fn acme.frontend.app/init
-          :depends-on #{:shared}}
+    ;; :app {:init-fn acme.frontend.app/init
+    ;;       :depends-on #{:shared}}
     }}}}

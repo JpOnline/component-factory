@@ -4,8 +4,19 @@
     [re-frame.core :as re-frame]
     ))
 
+(re-frame/reg-event-db ::set-app-state
+  (fn [_ [event application-state]]
+             application-state))
+
+(re-frame/dispatch-sync [::set-app-state {:counter 0}])
+
+(defn counter
+  [app-state]
+  (get-in app-state [:counter] 0))
+(re-frame/reg-sub :counter counter)
+
 (defn comp4 [{:keys [p1]}]
-  [:h1 "P1: " p1])
+  [:h1 "Jp P1: " p1])
 
 (defn component-x [{:keys [p2]}]
   [:<>
