@@ -85,3 +85,9 @@
                                           dissoc :component-did-update))
      :component-did-update component-did-update}))
 
+
+(defn evtJs [events]
+  (let [clj-events (js->clj events)
+        kw-events (mapv #(if (= (first %) \:) (keyword (subs % 1)) %) clj-events)]
+    (re-frame.core/dispatch kw-events))
+  )
