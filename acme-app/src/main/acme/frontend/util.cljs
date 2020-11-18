@@ -89,5 +89,13 @@
 (defn evtJs [events]
   (let [clj-events (js->clj events)
         kw-events (mapv #(if (= (first %) \:) (keyword (subs % 1)) %) clj-events)]
-    (re-frame.core/dispatch kw-events))
-  )
+    (re-frame.core/dispatch kw-events)))
+
+(defn addDataChangedHandler [query callback-fn]
+  (let [clj-query (js->clj query)
+        kw-query (mapv #(if (= (first %) \:) (keyword (subs % 1)) %) clj-query)
+        watcher-key (random-uuid)]
+    (add-watch (re-frame/subscribe kw-query) watcher-key
+             (fn [key atom old-state new-state]
+               (callback-fn old-state new-state)))
+    watcher-key)) ;; Return key for eventual remove-watch call.
